@@ -1,31 +1,12 @@
-# desafio-iblue
+# monopoly-simulator
 
-## 🔧 Como subir o ambiente
+## Step-by-step guide to run the application
 
-### Instale as dependências
+1. Make sure that Node.js is installed on your computer. If you don't have it yet, download and install Node.js from the official website https://nodejs.org/en/.
+2. Download or clone the project repository.
+3. Open the terminal or command prompt and navigate to the project folder.
+4. Run the command npm install to install the project dependencies.
+5. Run the command npm start to start the application.
+6. Access the API through the endpoint http://localhost:8080/jogo/simular using a program like Postman or any other HTTP request software.
 
-```
-npm i
-```
-
-### Rodando a aplicação
-
-```
-npm start
-```
-
-Obs: Subi o .env já com as variáveis de ambiente que a aplicação precisa
-
-## 📦 Desenvolvimento
-
-### Endpoints
-
-GET /ping - Retorna com um "pong" no response para saber se a aplicação está alcançável. - Exemplo de request:
-````
-curl --location --request GET 'http://localhost:8080/ping'
-````
-
-POST /jogo/simular - Gera um simulado do jogo Banco Imobiliário e retorna com o Vencedor do jogo e os jogadores ordenado por saldo. - Exemplo de request:
-````
-curl --location --request POST 'http://localhost:8080/jogo/simular'
-````
+Note: The application is implemented in Node.js and uses the Express framework to create the API. The main file is monopoly-simulator.js and the routes are defined in the file routes/jogo.js. The game is simulated on every GET request to the endpoint http://localhost:8080/jogo/simular and the response is returned in JSON format, containing the name of the winning player and a list of player names ordered by balance. The maximum number of rounds is defined in the file config.js and can be changed if necessary.
