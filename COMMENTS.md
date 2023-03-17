@@ -9,4 +9,7 @@
 5. Run the command npm start to start the application.
 6. Access the API through the endpoint http://localhost:8080/jogo/simular using a program like Postman or any other HTTP request software.
 
-Note: The application is implemented in Node.js and uses the Express framework to create the API. The main file is monopoly-simulator.js and the routes are defined in the file routes/jogo.js. The game is simulated on every GET request to the endpoint http://localhost:8080/jogo/simular and the response is returned in JSON format, containing the name of the winning player and a list of player names ordered by balance. The maximum number of rounds is defined in the file config.js and can be changed if necessary.
+Note:
+The application is implemented in Node.js and uses the Express framework to create the API.
+The main file is monopoly-simulator.js and the routes are defined in the file src\modules\http\router.js.
+The game is simulated on every POST request to the endpoint http://localhost:8080/jogo/simular and the response is returned in JSON format, containing the name of the winning player and a list of player names ordered by balance.

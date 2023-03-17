@@ -27,7 +27,7 @@ build
 out
 
 # dotenv environment variables file
-.env
+# .env
 
 # IDE settings
 .vscode/
