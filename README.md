@@ -1,45 +1,36 @@
 # monopoly-simulator
 
-## The challenge
+## The Challenge
 
-Consider the following hypothetical game very similar to Monopoly, where several of its mechanics have been simplified. In a game of this game, players change in rounds, in an order randomly defined at the beginning of the game. Players always start a game with a balance of 300 each.
+Consider a hypothetical game similar to Monopoly, where several mechanics have been simplified. Players take turns in rounds, in a randomly defined order at the beginning of the game. At the start of the game, each player has a balance of 300.
 
-In this game, the board consists of 5 properties in sequence. Each property has a cost to sell, a rent value, an owner if they are already bought, and they follow a certain order on the board. It is not possible to build hotels and any other improvements on board properties, due to the simplicity of the problem.
+The game board consists of five properties in sequence. Each property has a sale cost, rental value, and an owner, if it is already bought. Properties must be purchased when a player lands on it for the first time.
 
-At the beginning of his turn, the player rolls a 6-sided equiprobable die that determines how many spaces on the board the player will move.
+At the beginning of a player's turn, they roll a six-sided die to determine how many spaces they will move.
 
-When landing on an unowned property, the player can choose whether or not to buy the property. This is the only way a property can be purchased.
+If a player lands on an unowned property, they have the option to buy the property if they have sufficient funds. If they land on a property owned by another player, they must pay the rental amount for that property.
 
-When he lands on a property owned by an owner, he must pay the owner the rental amount for the property.
+Upon completion of a turn, the player earns 100 balance.
 
-When completing a turn on the board, the player earns 100 balance.
+Players can only purchase a property if it has no owner and the player has enough funds. Upon purchasing a property, the player loses the funds and gains ownership of the property.
 
-Players can only buy property if it has no owner and the player has the money from the sale. When buying a property, the player loses the money and gains ownership of the property.
+Each player has a unique behavior implementation that dictates the actions they will take throughout the game. There are four types of players:
 
-Each of the players has a different behavior implementation, which dictates the actions they will take throughout the game. More details about the behavior will be explained later.
+Player one is impulsive
+Player two is demanding
+Player three is cautious
+Player four is random
+The impulsive player buys any property they land on. The demanding player purchases any property as long as the rent value is greater than 50. The cautious player buys any property only if they have a reserve of 80 balance left after the purchase. The random player has a 50% chance of buying a property they land on.
 
-A player who has a negative balance loses the game and does not play anymore. It loses its properties and therefore can be bought by any other player.
+If a player has a negative balance, they lose the game and can no longer play. They forfeit their properties, which can then be purchased by any other player.
 
-It ends when there is only one player left with a positive balance, at any time in the match. That player is declared the winner.
+The game ends when there is only one player left with a positive balance, at any time during the game. The winning player is declared the winner.
 
-We want to run a simulation to decide the best strategy. For this, we idealized a game with 4 different types of possible players. The defined behaviors are:
+The goal is to run a simulation to determine the best strategy for the game. The simulation involves four players with different behaviors, and the result should be generated through an HTTP API.
 
--   Player one is impulsive;
--   Player two is demanding;
--   Player three is cautious;
--   Player four is random;
-
-The impulsive player buys any property he lands on.
-The demanding player buys any property as long as its rent value is greater than 50.
-The cautious player buys any property as long as he has a reserve of 80 balance left over after making the purchase.
-The random player buys the property he lands on with probability 50%.
-
-If the game takes too long, as is usual in games of this nature, the game ends in the thousandth round with the victory of the player with the most balance. The tiebreaker is the players' turn order in this match.
-
-To get the result of the game, create an HTTP API.
 Endpoint suggestion: http://localhost:8080/jogo/simular
-winning property: a string whose value is Player winning.
-players property: a string list of player names that is sorted by balance.
+
+The API response should include the name of the winning player and a list of player names sorted by balance.
 
 Example API response:
 
@@ -50,4 +41,4 @@ Example API response:
 }
 ```
 
-**Document it in a COMMENTS.md file as a step-by-step guide on how to run the application.**
+**Document the steps to run the application in a COMMENTS.md file.**
